@@ -26,7 +26,7 @@ public class ClassFinder {
         }
         try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
             Pattern pattern1 = new Pattern(pattern);
-            return br.lines().filter(s-> pattern1.matches(s.substring(s.lastIndexOf(".") + 1))).sorted(comparing(s -> s.substring(s.lastIndexOf(".") + 1))).collect(toList());
+            return br.lines().filter(s-> pattern1.matches(s.substring(s.lastIndexOf(".") + 1).trim())).sorted(comparing(s -> s.substring(s.lastIndexOf(".") + 1))).collect(toList());
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
