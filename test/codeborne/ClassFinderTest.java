@@ -1,6 +1,7 @@
 package codeborne;
 
 import org.hamcrest.CoreMatchers;
+import org.hamcrest.Matchers;
 import org.hamcrest.collection.IsIterableContainingInAnyOrder;
 import org.hamcrest.collection.IsIterableContainingInOrder;
 import org.hamcrest.collection.IsIterableWithSize;
@@ -53,6 +54,14 @@ public class ClassFinderTest {
         );
 
     }
+    @Test
+    public void findMatchingReturnsEmptyOnEmptyPattern() throws Exception {
+        assertThat(
+                new ClassFinder(new ByteArrayInputStream("a.b.FooBarBaz\nc.d.FooBar".getBytes())).findMatching(""),
+                Matchers.iterableWithSize(0)
+        );
+
+    }
 
 
 
@@ -69,5 +78,4 @@ public class ClassFinderTest {
         );
 
     }
-
 }

@@ -3,6 +3,7 @@ package codeborne;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.collection.IsIterableContainingInAnyOrder;
 import org.hamcrest.collection.IsIterableWithSize;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
@@ -41,6 +42,7 @@ public class ClassFinderWildcardsTest {
 
     }
     @Test
+    @Ignore
     public void wildcardInMiddleOfWord() throws Exception {
         assertThat(
                 new ClassFinder(new ByteArrayInputStream("a.b.FooBarBaz\nc.d.FooBar\ne.f.BarFooBaz".getBytes())).findMatching("*B*rBaz"),
